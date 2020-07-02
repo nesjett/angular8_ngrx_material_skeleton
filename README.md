@@ -1,3 +1,5 @@
+To acces the source code, change to branch ["source"](https://github.com/nesjett/angular8_ngrx_material_skeleton/tree/source)
+
 # Angular 8 with NgRx
 
 The project has been designed and developed as a "minimal" usage example, making use of the best practices and taking into account performance, UI and UX (without making the system too complex)
@@ -6,7 +8,6 @@ The software makes use of interfaces for object definitions, NgRx reducers and a
 
 For performance and UX comments and conclusions, plese, refer to [NOTE 1 & NOTE 2](https://licensebuttons.net/l/by/3.0/88x31.png)
 
-Testing classes are not used in this project, although they have not been removed in case they are needed in the future.
 
 # Screenshots
 #### Angular form validation

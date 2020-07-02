@@ -83,7 +83,12 @@ export const initialState: Array<Group> = [
     }, 
     {
         name: "Leisure",
-        bookmarks: []
+        bookmarks: [{
+            id: 1,
+            name: 'Another bookmark',
+            url: 'https://bing.com',
+            group: 'Leisure'
+        }]
     }
 ];
 

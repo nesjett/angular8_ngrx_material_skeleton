@@ -67,7 +67,7 @@ export class BookmarkFormComponent implements OnInit {
             
         // 4 Show feedback on success
         this.submitted = false;
-        this._snackBar.open('Bookmark added!', '', {duration: 3500});
+        this._snackBar.open('Bookmark added', '', {duration: 3500});
 
         // 5 Reset some inputs, leave group input in case we want to add more there.
         e.currentTarget.reset();

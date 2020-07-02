@@ -3,7 +3,7 @@
     <form [formGroup]="creationForm" (ngSubmit)="tryToCreate($event)">
 
         <mat-form-field color="primary" appearance="standard" class="formField">
-            <mat-label>Add a new bookmark</mat-label>
+            <mat-label>Bookmark name</mat-label>
             <input matInput placeholder="Name" formControlName="bName">
         </mat-form-field>
         <div *ngIf="submitted && f.bName.errors" class="invalid-feedback">
@@ -13,7 +13,7 @@
 
 
         <mat-form-field color="primary" appearance="standard" class="formField">
-            <mat-label>Write the URL</mat-label>
+            <mat-label>URL</mat-label>
             <input matInput placeholder="Url" formControlName="bUrl">
         </mat-form-field>
         <div *ngIf="submitted && f.bUrl.errors" class="invalid-feedback">
@@ -22,7 +22,7 @@
 
 
         <mat-form-field color="primary" appearance="standard" class="formField">
-            <mat-label>Set it on a group</mat-label>
+            <mat-label>Group</mat-label>
             <input matInput placeholder="Group" formControlName="bGroup">
         </mat-form-field>
         <div *ngIf="submitted && f.bGroup.errors" class="invalid-feedback">

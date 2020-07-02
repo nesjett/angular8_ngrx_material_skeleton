@@ -1,0 +1,29 @@
+<mat-card style="margin-bottom: 1rem;" *ngIf="(state$ | async)?.length > 0">
+    <button mat-flat-button style="width:100%;" (click)="clearAllBookmarks()">Remove all bookmarks</button>
+</mat-card>
+
+<mat-card>
+    <mat-action-list class="bookmark-list" *ngIf="(state$ | async)?.length > 0; else noBookmarks">
+        <ng-container *ngFor="let group of state$ | async; i as index">
+            <div class="group-title">
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <div mat-subheader>{{group.name}}</div>
+            </div>
+            <mat-list-item *ngFor="let bookmark of group.bookmarks" (click)="navigateToUrl(bookmark.url)">
+                <mat-icon mat-list-icon>bookmark_border</mat-icon>
+                <div mat-line class="bookmark-name">{{bookmark.name}}</div>
+                <div mat-line class="bookmark-url">{{bookmark.url}}</div>
+                <button mat-icon-button class="bookmark-delete-btn" (click)="deleteBookmark($event, bookmark.id, bookmark.group)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-list-item>
+        </ng-container>
+    </mat-action-list>
+
+    <ng-template #noBookmarks>
+        <div class="noRecordsFound">
+            <h3>You don't have any bookmark</h3> 
+            Try adding one from the form above.
+        </div>
+    </ng-template>
+</mat-card>

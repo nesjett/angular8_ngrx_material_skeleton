@@ -13,17 +13,17 @@ For performance and UX comments and conclusions, plese, refer to [NOTE 1 & NOTE 
 
 # Screenshots
 #### Angular form validation
-![Form validation](https://github.com/nesjett/angular8_ngrx/blob/master/src/assets/screenshots/form-validation.png?raw=true)
+![Form validation](https://github.com/nesjett/angular8_ngrx_material_skeleton/blob/master/assets/screenshots/form-validation.png?raw=true)
 
 #### Custom group creation
 Users can create their own groups. In the order they want, markers will group acordingly.
-![Bookmark creation](https://github.com/nesjett/angular8_ngrx/blob/master/src/assets/screenshots/new.png?raw=true)
+![Bookmark creation](https://github.com/nesjett/angular8_ngrx_material_skeleton/blob/master/assets/screenshots/new.png?raw=true)
 
 #### Feedback elements on bookmark creation/deletion
-![Action feedback](https://github.com/nesjett/angular8_ngrx/blob/master/src/assets/screenshots/action-feedback.png?raw=true)
+![Action feedback](https://github.com/nesjett/angular8_ngrx_material_skeleton/blob/master/assets/screenshots/action-feedback.png?raw=true)
 
 #### Open bookmark in new window + bookmark delete button
-![Delete UI](https://github.com/nesjett/angular8_ngrx/blob/master/src/assets/screenshots/bookmark-deletion-ui.png?raw=true)
+![Delete UI](https://github.com/nesjett/angular8_ngrx_material_skeleton/blob/master/assets/screenshots/bookmark-deletion-ui.png?raw=true)
 
 
 

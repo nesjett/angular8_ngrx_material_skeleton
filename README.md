@@ -8,7 +8,7 @@ The project has been designed and developed as a "minimal" usage example, making
 
 The software makes use of interfaces for object definitions, NgRx reducers and action definitios for the store, Angular Material elements and Native Angular forms with validation.
 
-For performance and UX comments and conclusions, plese, refer to [NOTE 1 & NOTE 2](https://licensebuttons.net/l/by/3.0/88x31.png)
+For performance and UX comments and conclusions, please, refer to [NOTE 1 & NOTE 2](https://licensebuttons.net/l/by/3.0/88x31.png)
 
 
 # Screenshots
@@ -37,12 +37,8 @@ Users can create their own groups. In the order they want, markers will group ac
  listing time.
  
  The factors taken into account for that conclusion are looking for the best UX
- in huge ammounts of data (bookmarks) that may be stored, for example, in 
- browsers local storage.
- 
- Users may feel better by waiting a little bit of time (in case there is a noticeable
- lag) during action proccesses (and we can show some short of animation...) than when
- they want to rapidly access to one of their bookmarks.
+ in huge ammounts of data (bookmarks) that may be stored. In this case I considered
+ that speed during bookmark listing is more important than when performing an action.
  
  Still this solution (having grouped bookmarks) rather than ordering
  them during render time would be faster in big amounts of data, avoiding one extra loop
@@ -79,8 +75,6 @@ interface indexData {
     urlIndex: []
 };
  ```
-
-This comments can also be found inside [bookmark.reducer.ts](https://github.com/nesjett/angular8_ngrx/blob/master/src/app/reducers/bookmark.reducer.ts) 
 
 
 

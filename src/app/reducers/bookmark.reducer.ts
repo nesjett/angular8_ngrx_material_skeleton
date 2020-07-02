@@ -1,76 +1,13 @@
-import { createReducer, on } from '@ngrx/store';
-
-// Actions
-import { add, remove, clearAll } from 'src/app/actions/bookmark.actions';
+import { createReducer, on, createAction, props } from '@ngrx/store';
 
 // Types
 import { Group } from '../types/group';
-
-// Reducer methods
-import { addNew } from './bookmark/new-bookmark';
-import { removeOne } from './bookmark/delete-bookmark';
-import { clearState } from './bookmark/clear-bookmarks';
+import { Bookmark } from '../types/bookmark';
  
-
-
-/**
- * NOTE: There are NOT too many details about the application goals.
- * Attending the minimun requirements, I decided that is more beneficial
- * loosing time during the addition/removal actions rather than during the 
- * listing time.
- * 
- * The factors taken into account for that conclusion are looking for the best UX
- * in huge ammounts of data (bookmarks) that may be stored, for example, in 
- * browsers local storage.
- * 
- * Users may feel better by waiting a little bit of time (in case there is a noticeable
- * lag) during action proccesses (and we can show some short of animation...) than when
- * they want to rapidly access to one of their bookmarks.
- * 
- * Still this solution (having grouped bookmarks) rather than ordering
- * them during render time would be faster in big amounts of data, avoiding one extra loop
- * to categorize them for every rehydration.
- * 
- * - Nestor
- */
 
 /***
- * NOTE 2: A good option to speed up search and delete actions could be to implement an
- * index. the comment below is a possible solution to this case.
+ * Default state
  */
-
-/*
-interface indexData {
-    groupIdx: number, // position in groups array
-    bookmarkIdx: number // position in bookmarks id for this group
-}
-
- interface storeState {
-    groups: Array<Group>, // actual store data
-    urlIndex: Array<[string, indexData]> // speed up the search proccess by having an index
- }
-
- export const initialState: storeState = {
-    groups: [
-        {
-            name: "Work",
-            bookmarks: [{
-                id: 2,
-                name: 'Some page I liked',
-                url: 'https://google.com',
-                group: 'Work'
-            }]
-        }, 
-        {
-            name: "Leisure",
-            bookmarks: []
-        }
-    ],
-    urlIndex: []
-};
-*/
- 
-
 export const initialState: Array<Group> = [
     {
         name: "Work",
@@ -91,6 +28,87 @@ export const initialState: Array<Group> = [
         }]
     }
 ];
+
+
+
+/***
+ * Action definitions
+ */
+export const add = createAction('[Bookmark form component] Added new bookmark', props<Bookmark>());
+
+export const remove = createAction('[Bookmark list component] Removed one bookmark', props<{id: number, group: string}>());
+
+export const clearAll = createAction('[Bookmark list component] Cleared all bookmarks');
+
+
+
+/***
+ * NOTE: If we need to do some shorting, this is the best place
+ * for doing so, but I think this goes beyond the goals of this test.
+ */
+const addNew = (state, bookmark) => {
+    const groupIdx: number = state.findIndex(group => { // Find the array position if exists
+        return group.name.toLowerCase() === bookmark.group.toLowerCase();
+    });
+
+    if( groupIdx >= 0 ) { // Group already exists, add new bookmark
+
+        const newGroup = {
+            name: state[groupIdx].name,
+            bookmarks: [...state[groupIdx].bookmarks, bookmark]
+        }
+
+        return state.map( (group: Group, i) => (i !== groupIdx) ? group : newGroup); // Override existing group by newly created ref
+
+    } else { // Otherwise, create a new group
+
+        const newGroup: Group = {
+            name: bookmark.group,
+            bookmarks: [bookmark]
+        }
+
+        return [newGroup, ...state]; 
+    }
+}
+
+
+const removeOne = (state: Group[], data: {id: number, group: string}) => {
+    // IMPORTANT! Having implemented the proposal in line 32 of bookmark.reducer.ts would speed up this proccess a lot in data intensive environments.
+
+    
+    let groupIdx = state.findIndex(group => { // Find the array position if exists
+        return group.name.toLowerCase() === data.group.toLowerCase();
+    });
+
+    if( groupIdx < 0 ) // Group don't exists
+        return state;
+
+    let nbrElems = state[groupIdx].bookmarks.length; // How many elemenets are in this group?
+    let bookmarkIdx = state[groupIdx].bookmarks.findIndex(bookmark => { // Find the array position if exists
+        return bookmark.id === data.id;
+    });
+
+    if ( bookmarkIdx < 0 ) // Bookmark don't exists
+        return state;
+
+
+    if( nbrElems === 1 ) { // The last element is the one we are trying to remove. So remove the whole group.
+        return [...state.slice(0, groupIdx), ...state.slice(groupIdx + 1)];
+    } else {
+        const newGroup: Group = { // Rebuild the group with the new data
+            name: state[groupIdx].name,
+            bookmarks: [...state[groupIdx].bookmarks.slice(0, bookmarkIdx), ...state[groupIdx].bookmarks.slice(bookmarkIdx + 1)]
+        }
+       return [...state.slice(0, groupIdx), newGroup, ...state.slice(groupIdx + 1)]; // Recombine sliced state with the new group, KEEPING the same position it had before
+
+    }
+}
+
+
+const clearState = (state) => {
+    return [];
+}
+
 
 
 /***

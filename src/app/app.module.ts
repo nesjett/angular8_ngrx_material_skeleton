@@ -22,8 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // NgRx
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './reducers';
-//import { bookmarkReducer } from './reducers/bookmark.reducer';
+import { reducers } from './reducers/store.state';
 
 
 @NgModule({

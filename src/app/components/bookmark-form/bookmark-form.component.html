@@ -1,6 +1,6 @@
 
 <mat-card class="formContainer">
-    <form [formGroup]="creationForm" (ngSubmit)="tryToCreate()">
+    <form [formGroup]="creationForm" (ngSubmit)="tryToCreate($event)">
 
         <mat-form-field color="primary" appearance="standard" class="formField">
             <mat-label>Add a new bookmark</mat-label>

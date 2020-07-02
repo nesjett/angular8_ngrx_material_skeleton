@@ -37,7 +37,8 @@ Users can create their own groups. In the order they want, markers will group ac
  listing time.
  
  The factors taken into account for that conclusion are looking for the best UX
- in huge ammounts of data (bookmarks) that may be stored.
+ in huge ammounts of data (bookmarks) that may be stored. In this case I considered
+ that speed during bookmark listing is more important than when performing an action.
  
  Still this solution (having grouped bookmarks) rather than ordering
  them during render time would be faster in big amounts of data, avoiding one extra loop

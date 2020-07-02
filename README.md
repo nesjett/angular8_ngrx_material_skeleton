@@ -6,7 +6,7 @@ A live version of the site can be found at [Github pages](https://nesjett.github
 
 The project has been designed and developed as a "minimal" usage example, making use of the best practices and taking into account performance, UI and UX (without making the system too complex)
 
-The software makes use of interfaces for object definitions, NgRx reducers and action definitios for the store, Angular Material elements and Native Angular forms with validation.
+The software makes use of interfaces, NgRx reducers and action definitions for the store, Angular Material elements and Native Angular forms with validation.
 
 For performance and UX comments and conclusions, please, refer to [NOTE 1 & NOTE 2](https://github.com/nesjett/angular8_ngrx_material_skeleton/tree/master#remarks)
 
@@ -94,9 +94,11 @@ ng serve
 ```
 
 ## To test the production project
-### Option 1: Try it online at [Github pages](https://nesjett.github.io/angular8_ngrx_material_skeleton/)
+### Option 1: 
+Try it online at [Github pages](https://nesjett.github.io/angular8_ngrx_material_skeleton/)
 
-### Option 2: Go to master branch, and dowload the compiled, production version
+### Option 2: 
+Go to master branch and dowload the compiled, production version
 
 
 # Authorship

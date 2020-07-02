@@ -8,7 +8,7 @@ The project has been designed and developed as a "minimal" usage example, making
 
 The software makes use of interfaces for object definitions, NgRx reducers and action definitios for the store, Angular Material elements and Native Angular forms with validation.
 
-For performance and UX comments and conclusions, please, refer to [NOTE 1 & NOTE 2](https://licensebuttons.net/l/by/3.0/88x31.png)
+For performance and UX comments and conclusions, please, refer to [NOTE 1 & NOTE 2](https://github.com/nesjett/angular8_ngrx_material_skeleton/tree/master#remarks)
 
 
 # Screenshots

@@ -73,7 +73,7 @@ const addNew = (state, bookmark) => {
 
 
 const removeOne = (state: Group[], data: {id: number, group: string}) => {
-    // IMPORTANT! Having implemented the proposal in line 32 of bookmark.reducer.ts would speed up this proccess a lot in data intensive environments.
+    // IMPORTANT! Having implemented the proposal the readme would speed up this proccess a lot in data intensive environments.
 
     
     let groupIdx = state.findIndex(group => { // Find the array position if exists

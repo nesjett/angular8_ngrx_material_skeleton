@@ -1,4 +1,6 @@
-To acces the source code, change to branch ["source"](https://github.com/nesjett/angular8_ngrx_material_skeleton/tree/source)
+To acces the source code, change to branch ["source"](https://github.com/nesjett/angular8_ngrx_material_skeleton/tree/source)  
+
+A live version of the site can be found at [Github pages](https://nesjett.github.io/angular8_ngrx_material_skeleton/)
 
 # Angular 8 with NgRx
 
@@ -97,6 +99,10 @@ npm install
 ng serve
 ```
 
+## To test the production project
+### Option 1: Try it online at [Github pages](https://nesjett.github.io/angular8_ngrx_material_skeleton/)
+
+### Option 2: Go to master branch, and dowload the compiled, production version
 
 
 # Authorship

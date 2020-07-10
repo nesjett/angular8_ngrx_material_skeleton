@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 // Actions
-import { remove, clearAll } from 'src/app/reducers/bookmark.reducer';
+import { remove, clearAll } from 'src/app/actions/bookmark.actions';
 
 // Types
 import { Group } from 'src/app/types/group';

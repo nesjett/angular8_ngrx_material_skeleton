@@ -2,7 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 
 // NgRx
 import { Store, select } from '@ngrx/store';
-import { add } from 'src/app/reducers/bookmark.reducer';
+import { add } from 'src/app/actions/bookmark.actions';
 import { Bookmark } from 'src/app/types/bookmark';
 
 // Forms
